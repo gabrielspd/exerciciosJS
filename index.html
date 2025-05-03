@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercícios de JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .instructions {
+      background-color: #fff8dc;
+      border-left: 5px solid #f4a261;
+      padding: 1rem;
+      margin: 1rem auto 2rem;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .card:hover {
+      background-color: #e0f7fa;
+    }
+
+    .card.azul {
+      background-color: #80deea;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Estilo para a tela preta que exibe o código */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      text-align: left;
+      padding: 2rem;
+      z-index: 9999;
+      overflow-y: auto;
+    }
+
+    .modal-content {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 8px;
+      max-height: 80%;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    .modal button {
+      background-color: #f44336;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .modal button:hover {
+      background-color: #d32f2f;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>📚 Exercícios de JavaScript</h1>
+  <p>Clique em um exercício abaixo para visualizar o código.</p>
+
+  <div class="instructions">
+    <p><strong>💡 Dica:</strong> Para executar um exercício no terminal:</p>
+    <pre><code>node js/ex01.js</code></pre>
+    <p>Substitua <code>ex01.js</code> pelo exercício desejado.</p>
+  </div>
+
+  <div class="grid">
+    <a href="#" class="card" onclick="executarCodigo('ex01')">Exercício 1</a>
+    <a href="#" class="card" onclick="executarCodigo('ex02')">Exercício 2</a>
+    <a href="#" class="card" onclick="executarCodigo('ex03')">Exercício 3</a>
+    <a href="#" class="card" onclick="executarCodigo('ex04')">Exercício 4</a>
+    <a href="#" class="card" onclick="executarCodigo('ex05')">Exercício 5</a>
+    <a href="#" class="card" onclick="executarCodigo('ex06')">Exercício 6</a>
+    <a href="#" class="card" onclick="executarCodigo('ex07')">Exercício 7</a>
+    <a href="#" class="card" onclick="executarCodigo('ex08')">Exercício 8</a>
+    <a href="#" class="card" onclick="executarCodigo('ex09')">Exercício 9</a>
+    <a href="#" class="card" onclick="executarCodigo('ex010')">Exercício 10</a>
+    <a href="#" class="card" onclick="executarCodigo('ex011')">Exercício 11</a>
+    <a href="#" class="card" onclick="executarCodigo('ex012')">Exercício 12</a>
+    <a href="#" class="card" onclick="executarCodigo('ex013')">Exercício 13</a>
+    <a href="#" class="card" onclick="executarCodigo('ex014')">Exercício 14</a>
+    <a href="#" class="card" onclick="executarCodigo('ex015')">Exercício 15</a>
+  </div>
+
+  <footer>
+    &copy; 2025 - Desenvolvido por Gabriel Senna para +prati
+  </footer>
+
+  <!-- Modal para exibir o código -->
+  <div id="codigoModal" class="modal">
+    <div class="modal-content">
+      <pre id="codigoExercicio"></pre>
+      <button onclick="fecharModal()">Fechar</button>
+    </div>
+  </div>
+
+  <script>
+    // Função para executar o código dos exercícios
+    function executarCodigo(exercicio) {
+      let script = document.createElement('script');
+      script.src = `js/${exercicio}.js`;
+      document.body.appendChild(script);
+    }
+
+    // Função para exibir o código em uma tela preta (modal)
+    function exibirCodigo(exercicio) {
+      const codigos = {
+
+      };
+
+      const modal = document.getElementById('codigoModal');
+      const codigoExercicio = document.getElementById('codigoExercicio');
+      
+      // Atualiza o conteúdo da modal com o código do exercício
+      codigoExercicio.textContent = codigos[exercicio];
+      
+      // Exibe o modal
+      modal.style.display = 'block';
+    }
+
+    // Função para fechar o modal
+    function fecharModal() {
+      const modal = document.getElementById('codigoModal');
+      modal.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
